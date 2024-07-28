@@ -1,4 +1,4 @@
-**libft 📚**
+**libft 📚 - 1337.ma**
 ================
 
 A C library containing a set of general-purpose functions 🤖.
@@ -80,4 +80,3 @@ A C library containing a set of general-purpose functions 🤖.
 * `make fclean`: Removes object files, dependencies, and the `libft.a` file 💣.
 * `make re`: Rebuilds the library from scratch 🔁.
 
-To copy, click the three dots on the top right corner of this code block and select "Copy"! 😊
