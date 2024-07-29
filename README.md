@@ -1,4 +1,4 @@
-**libft 📚 - 1337.ma**
+**libft 📚**
 ================
 
 A C library containing a set of general-purpose functions 🤖.
