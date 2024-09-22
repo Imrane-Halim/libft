@@ -4,6 +4,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 /// -- mandatory part 1
 int					ft_atoi(char const *s);
@@ -69,5 +70,11 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+// -- for the ft_printf
+int				ft_printf(const char *string, ...);
+int				ft_print_format(const char s, va_list *args);
+int				ft_putptr(unsigned long p);
+int				ft_puthex(unsigned long n, int isupper);
+int				ft_unsigned(unsigned int n);
 
 #endif
