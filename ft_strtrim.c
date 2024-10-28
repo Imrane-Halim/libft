@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/22 10:33:49 by ihalim            #+#    #+#             */
+/*   Updated: 2024/10/27 15:32:50 by ihalim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static int	isinset(int c, const char *set)
@@ -20,7 +32,7 @@ char	*ft_strtrim(char const *s, char const *set)
 	size_t	end;
 	char	*str;
 
-	if (s == NULL)
+	if (!s || !set)
 		return (NULL);
 	start = 0;
 	while (s[start] && isinset(s[start], set))

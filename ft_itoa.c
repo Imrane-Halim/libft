@@ -1,39 +1,57 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/22 10:32:14 by ihalim            #+#    #+#             */
+/*   Updated: 2024/10/26 12:03:00 by ihalim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static int	count_digits(long int n)
+static int	count_size(int n)
 {
+	int	i;
+
+	i = 2;
 	if (n < 0)
+	{
+		i++;
 		n = -n;
-	if (n == 0 || n < 10)
-		return (1);
-	return (1 + count_digits(n / 10));
+	}
+	while (n > 9)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i);
 }
 
 char	*ft_itoa(int n)
 {
-	char		*a;
-	long int	nbr;
-	int			len;
+	long	i;
+	int		size;
+	char	*str;
 
-	len = count_digits(n);
-	if (n < 0)
-	{
-		nbr = (long int)n;
-		nbr = -nbr;
-		len++;
-	}
-	else
-		nbr = (long int)n;
-	a = (char *)malloc(len + 1);
-	if (!a)
+	i = n;
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	size = count_size(n);
+	str = malloc(sizeof(char) * (size));
+	if (str == NULL)
 		return (NULL);
 	if (n < 0)
-		a[0] = '-';
-	a[len] = '\0';
-	while (len-- && a[len] != '-')
+		n = -n;
+	str[--size] = '\0';
+	while (--size >= 0)
 	{
-		a[len] = nbr % 10 + '0';
-		nbr /= 10;
+		str[size] = (n % 10) + '0';
+		n /= 10;
 	}
-	return (a);
+	if (i < 0)
+		*str = '-';
+	return (str);
 }

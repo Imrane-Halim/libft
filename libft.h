@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/22 10:34:29 by ihalim            #+#    #+#             */
+/*   Updated: 2024/10/27 15:30:33 by ihalim           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
 
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
-# include <stdarg.h>
 
 /// -- mandatory part 1
 int					ft_atoi(char const *s);
@@ -30,6 +41,7 @@ char				*ft_strndup(const char *s, size_t n);
 char				*ft_strnstr(const char *big, const char *little,
 						size_t len);
 char				*ft_strrchr(const char *s, int c);
+char				*ft_strchr(const char *s, int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
@@ -70,14 +82,5 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
-// -- for the ft_printf
-int				ft_putchar(int c);
-int				ft_putnbr(int n);
-int				ft_putstr(char *s);
-int				ft_printf(const char *string, ...);
-int				ft_print_format(const char s, va_list *args);
-int				ft_putptr(unsigned long p);
-int				ft_puthex(unsigned long n, int isupper);
-int				ft_unsigned(unsigned int n);
 
 #endif
