@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:33:49 by ihalim            #+#    #+#             */
-/*   Updated: 2024/10/27 15:32:50 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/10/29 09:35:15 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ char	*ft_strtrim(char const *s, char const *set)
 {
 	size_t	start;
 	size_t	end;
-	char	*str;
 
 	if (!s || !set)
 		return (NULL);
@@ -40,9 +39,5 @@ char	*ft_strtrim(char const *s, char const *set)
 	end = ft_strlen(s);
 	while (end > start && isinset(s[end - 1], set))
 		end--;
-	str = (char *)malloc(end - start + 1);
-	if (str == NULL)
-		return (NULL);
-	ft_strncpy(str, s + start, end - start);
-	return (str);
+	return (ft_substr(s, start, end - start));
 }

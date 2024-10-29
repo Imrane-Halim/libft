@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:33:02 by ihalim            #+#    #+#             */
-/*   Updated: 2024/10/27 15:33:46 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/10/29 09:39:36 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static char	*get_word(char const *s, char c, int *i)
 	start = *i;
 	while (s[*i] != c && s[*i])
 		(*i)++;
-	return (ft_strndup(s + start, *i - start));
+	return (ft_substr(s, start, *i - start));
 }
 
 static void	free_arr(char **arr, int arr_i)
