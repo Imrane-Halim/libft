@@ -6,42 +6,33 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:31:50 by ihalim            #+#    #+#             */
-/*   Updated: 2024/10/26 09:22:54 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/11/04 09:49:05 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	is_space(char c)
-{
-	return ((c >= 9 && c <= 13) || c == 32);
-}
-
 int	ft_atoi(const char *s)
 {
-	int		i;
-	int		res;
-	short	sign;
+	long	res;
+	int		sign;
 
-	i = 0;
-	while (is_space(s[i]))
-		i++;
+	while ((*s >= 9 && *s <= 13) || *s == 32)
+		s++;
 	sign = 1;
-	if (s[i] == '-')
+	if (*s == '-' || *s == '+')
 	{
-		sign = -1;
-		i++;
-	}
-	else if (s[i] == '+')
-	{
-		sign = 1;
-		i++;
+		if (*s == '-')
+			sign = -1;
+		s++;
 	}
 	res = 0;
-	while (s[i] >= '0' && s[i] <= '9')
+	while (*s >= '0' && *s <= '9')
 	{
-		res = res * 10 + s[i] - '0';
-		i++;
+		if (res > (LONG_MAX - (*s - '0')) / 10)
+			return (-sign * (sign == 1));
+		res = (res * 10) + (*s - '0');
+		s++;
 	}
-	return (res * sign);
+	return ((int)res * sign);
 }

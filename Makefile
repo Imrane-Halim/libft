@@ -26,7 +26,7 @@ bonus: $(OBJS) $(BOBJS)
 	cc $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f *.o 
+	rm -f $(OBJS) $(BOBJS)
 
 fclean: clean 
 	rm -f $(NAME)

@@ -6,7 +6,7 @@
 /*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:33:00 by ihalim            #+#    #+#             */
-/*   Updated: 2024/10/22 10:33:01 by ihalim           ###   ########.fr       */
+/*   Updated: 2024/11/04 09:28:51 by ihalim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	ft_putstr_fd(char const *s, int fd)
 {
+	if (fd < 0 || !s)
+		return ;
 	write(fd, s, ft_strlen(s));
 }
