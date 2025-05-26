@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ihalim <ihalim@student.42.fr>              +#+  +:+       +#+        */
+/*   By: imrane <imrane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 11:26:24 by ihalim            #+#    #+#             */
-/*   Updated: 2024/10/22 11:26:26 by ihalim           ###   ########.fr       */
+/*   Updated: 2025/05/26 11:38:07 by imrane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,5 @@
 
 char	*ft_strcpy(char *dst, const char *src)
 {
-	size_t	i;
-
-	i = 0;
-	while (src[i])
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
+	return (ft_memmove(src, dst, ft_strlen(src) + 1));
 }
